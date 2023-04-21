@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7cr5kgh4h1y2"]
+
+[ext_resource type="Script" path="res://hi.gd" id="1_ef21m"]
+
+[node name="ScrollContainer" type="ScrollContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Holder" type="VBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_ef21m")
+
+[node name="Template" type="HBoxContainer" parent="Holder"]
+visible = false
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Holder/Template"]
+layout_mode = 2
+text = "Enter gender:"
+
+[node name="LineEdit" type="LineEdit" parent="Holder/Template"]
+custom_minimum_size = Vector2(275, 50)
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "Gender"
+alignment = 1
+expand_to_text_length = true
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Label" type="Label" parent="Holder/Template"]
+layout_mode = 2
+text = "What percent of that gender?"
+
+[node name="HSlider" type="HSlider" parent="Holder/Template"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+min_value = -100.0
+step = 0.0
+
+[node name="Label3" type="Label" parent="Holder/Template"]
+layout_mode = 2
+text = "FUCKING CHANGE ME"
+
+[node name="Button" type="Button" parent="Holder/Template"]
+custom_minimum_size = Vector2(75, 50)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Delete"
+
+[node name="Final" type="HBoxContainer" parent="Holder"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Holder/Final"]
+layout_mode = 2
+text = "Add Gender"
+
+[node name="Label" type="Label" parent="Holder/Final"]
+layout_mode = 2
+
+[connection signal="pressed" from="Holder/Final/Button" to="Holder" method="addGender"]
